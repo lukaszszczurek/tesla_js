@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 function Section({title,description,leftButtonText,rightButtonText,modelImage}) {
     return (
-        <Wrap bgImage={modelImage}>
+        <Wrap bgImg={modelImage}>
            <ItemText>
 
                <h1>{title}</h1>
@@ -43,8 +43,9 @@ const Wrap=styled.div`
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  // background-image: ${props => `url("/images/${props.bgImage}")`};
-  background-image:url("/images/model-s.jpg");
+   background-image: ${props => `url("/images/${props.bgImg}")`};
+  
+  //background-image:url("/images/model-s.jpg");
   display: flex;
   flex-direction: column;
   justify-content: space-between;

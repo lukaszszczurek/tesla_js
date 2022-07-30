@@ -10,7 +10,7 @@ function Home(props) {
            description="Order Online for Touch delivery"
            leftButtonText="Custom Order"
            rightButtonText=" Existing Inventory"
-           modelImage="/images/model-s.jpg"
+           modelImage="model-s.jpg"
 
 
 
