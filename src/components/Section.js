@@ -1,31 +1,39 @@
 import React from 'react';
 import styled from "styled-components";
 
-function Section() {
+function Section({title,description,leftButtonText,rightButtonText,modelImage}) {
     return (
-        <Wrap>
+        <Wrap bgImage={modelImage}>
            <ItemText>
-               Section
-               <h1>Model S</h1>
-               <p>Order Online for Touch delivery</p>
+
+               <h1>{title}</h1>
+               <p>{description}</p>
            </ItemText>
-           <Buttons>
+            <Buttons>
             <ButtonGroup>
                 <LeftButton>
-                        Cusstom Order
+                    {leftButtonText}
                 </LeftButton>
 
                 <RightButton>
 
-                        Existing Inventory
+                    {rightButtonText}
                 </RightButton>
-            </ButtonGroup>
 
-            <DownArrow src='/images/down-arrow.svg'/>
-           </Buttons>
+            </ButtonGroup>
+              <Arrow>
+                <DownArrow src='/images/down-arrow.svg'/>
+              </Arrow>
+
+            </Buttons>
+
+
+
+
 
 
         </Wrap>
+
     );
 }
 
@@ -35,11 +43,12 @@ const Wrap=styled.div`
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('/images/model-s.jpg');
+  // background-image: ${props => `url("/images/${props.bgImage}")`};
+  background-image:url("/images/model-s.jpg");
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: center; //horizontal
 
 `;
 
@@ -51,6 +60,10 @@ const ItemText=styled.div`
 `;
 
 const ButtonGroup=styled.div`
+  
+  @media (max-width: 768px){
+    flex-direction: column;
+  }
     display: flex;
   margin-bottom: 30px;
   
@@ -69,6 +82,7 @@ const  LeftButton=styled.div`
   text-transform: uppercase;
   font-size: 12px;
   cursor:pointer;
+  margin: 8px;
   
   
 
@@ -76,14 +90,19 @@ const  LeftButton=styled.div`
 `;
 
 const RightButton=styled(LeftButton)`
+    background-color: white;
+    opacity: 0.65;
+    color: black;
 
 `;
 
 
 const DownArrow=styled.img`
 
-    margin-top: 50px;
+    margin-top: 10px;
     height: 40px;
+    animation: animationDown infinite 1.5s;
+    overflow-x:hidden;
     
     
   
@@ -91,8 +110,15 @@ const DownArrow=styled.img`
 
 
 const Buttons=styled.div`
-
+    
+    justify-content: center;
 `;
+
+const Arrow=styled.div`
+  justify-content: center;
+  display: flex;
+    
+    `;
 
 
 

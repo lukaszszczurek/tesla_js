@@ -5,7 +5,16 @@ import Section from "./Section";
 function Home(props) {
     return (
         <Container>
-           <Section/>
+           <Section
+           title="Model S"
+           description="Order Online for Touch delivery"
+           leftButtonText="Custom Order"
+           rightButtonText=" Existing Inventory"
+           modelImage="/images/model-s.jpg"
+
+
+
+           />
         </Container>
     );
 }
