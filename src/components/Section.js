@@ -6,7 +6,7 @@ function Section({title,description,leftButtonText,rightButtonText,modelImage}) 
         <Wrap bgImg={modelImage}>
            <ItemText>
 
-               <h1>{title}</h1>
+               <h1> {title}</h1>
                <p>{description}</p>
            </ItemText>
             <Buttons>
@@ -14,11 +14,14 @@ function Section({title,description,leftButtonText,rightButtonText,modelImage}) 
                 <LeftButton>
                     {leftButtonText}
                 </LeftButton>
+                {rightButtonText &&
+                    <RightButton>
 
-                <RightButton>
+                        {rightButtonText}
+                    </RightButton>
 
-                    {rightButtonText}
-                </RightButton>
+                }
+
 
             </ButtonGroup>
               <Arrow>
@@ -54,7 +57,8 @@ const Wrap=styled.div`
 `;
 
 const ItemText=styled.div`
-    padding-top: 15vh;
+    padding-top:  15vh;
+    
     text-align: center;
     
     
