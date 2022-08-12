@@ -11,6 +11,10 @@ body{
     width: 100%;
     overflow-x: hidden;
 }
+a{
+    text-decoration: none;
+}
+
 
 @keyframes animationDown {
     0%,20%,50%,80%,100%{

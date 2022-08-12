@@ -42,7 +42,7 @@ function Section({title,description,leftButtonText,rightButtonText,modelImage}) 
 
 const Wrap=styled.div`
     width: 100vw;
-    height: 100vw;
+    height: 80vw;
     background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
