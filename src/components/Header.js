@@ -2,8 +2,13 @@ import React,{useState} from 'react';
 import styled from "styled-components";
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import {selectCars} from "../features/car/carSlice";
+import {useSelector} from "react-redux";
 
 function Header(props) {
+
+    const [burgerStatus,setStatus]=useState(false);
+    const cars=useSelector(selectCars);
     return (
       <Container>
           <a>
@@ -13,6 +18,10 @@ function Header(props) {
           </a>
 
           <Menu>
+              { cars.map((car,index)=>(
+
+                  <a key={index} href="#">{car}</a>
+              ))}
               <a href="#">Model S</a>
               <a href="#">Model 3</a>
               <a href="#">Model X</a>
@@ -23,13 +32,18 @@ function Header(props) {
           <RightMenu>
               <a href="#">shop</a>
               <a href="#">tesla account</a>
-            <CustomMenu/>
+            <CustomMenu onClick={()=>setStatus(true)} />
           </RightMenu>
 
-          <BurgerNav>
+          <BurgerNav show={burgerStatus}>
               <CloseWrapper>
-                  <CloseMenu/>
+                  <CloseMenu onClick={()=> setStatus(false)}/>
               </CloseWrapper>
+
+              {cars && cars.map((car,index)=>(
+
+                  <li><a key={index} href="#">{car}</a></li>
+              ))}
 
 
               
@@ -113,7 +127,7 @@ function Header(props) {
         bottom: 0;
       
         background: white;
-        width: 200px;
+        width: 300px;
         z-index: 16;
         list-style: none;
         padding:20px;
@@ -121,6 +135,8 @@ function Header(props) {
         flex-direction: column;
         justify-content: flex-start;
         text-align:start;
+        transform: ${props=>props.show ? 'translateX(0)':'translateX(100%)'};
+        transition:  0.2s;
       
       li{
         
@@ -145,7 +161,7 @@ function Header(props) {
     const CloseWrapper=styled.div`
           position: fixed;
           justify-content:flex-end;
-          padding-left: 150px;
+          padding-left: 240px;
     
     `;
 
