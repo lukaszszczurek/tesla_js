@@ -73,6 +73,13 @@ function Header(props) {
             left: 0;
             right: 0;
           z-index: 1;
+          background-color:white;
+          opacity: 0.85;
+          
+          
+          
+          
+          
     
     
         
@@ -83,6 +90,7 @@ function Header(props) {
         align-items: center;
         justify-content: center;
         flex: 1;
+      
         a{
           font-weight: 600;
           text-transform: uppercase;
